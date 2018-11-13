@@ -37,46 +37,40 @@
                   <thead>
                     <tr>
                       <th>No.</th>
-                      <th>Nama Siswa</th>
-                      <th>NISN</th>
-                      <th>Tingkat</th>
-                      <th>Alamat</th>
-                      <th>No. HP Orang Tua</th>
-                      <th>Pembayaran SPP Terakhir</th>
+                      <th>Nama Staff</th>
+                      <th>Bidang</th>
+                      <th>NIP</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                      use Carbon\Carbon;
-                      use App\SPP;
-
-                      $tingkat = Carbon::now()->format('Y');
                       $i = 1;
-                      foreach(App\Siswa::orderBy('nisn')->get() as $siswa) {
-                        $tahun_masuk = $tingkat - $siswa->tahun_masuk + 10;
-                        if($tahun_masuk <= 12) {
-                          $spp = SPP::where('id_siswa', $siswa->id_siswa)->value('bulan_terakhir');
-                          $spp = $spp % 12;
-                          if($spp == 0) {
-                            $spp = 'Desember';
+                      foreach(App\User::orderBy('id')->get() as $staff) {
+                        if(auth()->user()->id != $staff->id) {
+                          if($staff->jabatan == 1) {
+                            $jabatan = 'Kepala Sekolah';
                           }
-                          else if($spp == 1) {
-                            $spp = 'Januari';
+
+                          else if($staff->jabatan == 2) {
+                            $jabatan = 'Staff Administrasi Kesiswaan dan Keuangan';
+                          }
+
+                          else if($staff->jabatan == 3) {
+                            $jabatan = 'Staff Sarana dan Prasarana';
                           }
                     ?>
 
                     <tr>
                       <td>{{ $i }}.</td>
-                      <td>{{ $siswa->nama_siswa }}</td>
-                      <td>{{ $siswa->nisn }}</td>
-                      <td>{{ $tahun_masuk }}</td>
-                      <td>{{ $siswa->alamat }}</td>
-                      <td>{{ $siswa->no_hp_ortu }}</td>
-                      <td>{{ $spp }}</td>
+                      <td>{{ $staff->name }}</td>
+                      <td>{{ $jabatan }}</td>
+                      <td>{{ $staff->nip }}</td>
+                      <td>Hapus</td>
                     </tr>
 
                     <?php
-                        $i++;
+                          $i++;
                         }
                       }
                     ?>

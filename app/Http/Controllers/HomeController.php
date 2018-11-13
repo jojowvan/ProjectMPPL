@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->jabatan==1) {
+          return view('user/home');
+        }
+        else if(auth()->user()->jabatan==2) {
+          return view('user/home');
+        }
+        else if(auth()->user()->jabatan==3) {
+          return view('user/home');
+        }
+        // return view('user/home');
     }
 }

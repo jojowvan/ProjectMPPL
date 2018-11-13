@@ -31,36 +31,12 @@
             <div class="card">
               <div class="card-header">Example Form</div>
               <div class="card-body card-block">
-                <form action="{{ route('tambahSiswa') }}" method="post" class="">
+                <form action="{{ route('bayarSPP') }}" method="post" class="">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" name="nama_siswa" placeholder="Nama Siswa" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
                       <input type="text" name="nisn" placeholder="NISN Siswa" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                      <input type="text" name="tahun_masuk" placeholder="Tahun Masuk" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                      <input type="text" name="alamat" placeholder="Alamat" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                      <input type="text" name="no_hp_ortu" placeholder="No. HP Orang Tua" class="form-control">
                     </div>
                   </div>
                   <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Submit</button></div>
