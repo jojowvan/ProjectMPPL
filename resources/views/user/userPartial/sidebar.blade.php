@@ -55,7 +55,7 @@
 
         <h3 class="menu-title">Sarana dan Prasarana</h3>
         <li>
-          <a href=""> <i class="menu-icon ti-email"></i>Daftar Sarana dan Prasarana</a>
+          <a href="{{ route('daftar.sarana') }}"> <i class="menu-icon ti-email"></i>Daftar Sarana dan Prasarana</a>
         </li>
         <li>
           <a href=""> <i class="menu-icon ti-email"></i>Rencana Anggaran</a>

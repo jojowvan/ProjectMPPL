@@ -34,6 +34,5 @@ class HomeController extends Controller
         else if(auth()->user()->jabatan==3) {
           return view('user/home');
         }
-        // return view('user/home');
     }
 }

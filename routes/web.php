@@ -11,7 +11,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/tambahSiswa', 'StaffAdministrasiController@tambahSiswa')->name('tambahSiswa');
 //Route::get('/tambahCabang', 'AdminController@tambahCabang')->name('tambahCabang');
 
-Route::group(['prefix'=>'Administrasi'], function(){
+Route::group(['prefix'=>'KepalaSekolah'], function(){
   Route::get('/DaftarStaff', 'KepalaSekolahController@daftarStaff')->name('daftarStaff');
   Route::get('/TambahStaff', 'KepalaSekolahController@formTambahStaff')->name('formTambahStaff');
   // Route::post('/TambahSiswa', 'StaffAdministrasiController@tambahSiswa')->name('tambahSiswa');
